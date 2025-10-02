@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-
 import React from "react";
 import { useRouter } from "next/navigation";
 import  axios  from "axios";
@@ -8,21 +7,30 @@ import  axios  from "axios";
 
 
 
-export default function LoginPage() {
+export default function SignupPage() {
     const [user, setUser] = React.useState({
         email: "",
         password: "",
+        username: "",
     })
 
-    const onLogin = async () => {
+    const onSignup = async () => {
 
     }
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>Login</h1>
+            <h1>Signup</h1>
             <hr />
-            
+            <label htmlFor="username">username</label>
+            <input 
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+            id="username"
+            type="text"
+            value={user.username}
+            onChange={(e) => setUser({...user, username: e.target.value})}
+            placeholder="username"
+            />
             <label htmlFor="email">email</label>
             <input 
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
@@ -42,11 +50,10 @@ export default function LoginPage() {
             placeholder="password"
             />
             <button
-            onClick={onLogin}
+            onClick={onSignup}
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-            >Login here</button>
-            <Link href="/signup">Visit Signup page</Link>
-
+            >Signup here</button>
+            <Link href="/login" >Visit login page</Link>
         </div>
     )
 }

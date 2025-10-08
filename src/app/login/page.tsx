@@ -42,11 +42,12 @@ export default function LoginPage() {
     }, [user]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>{loading ? "Processing" : "Login"}</h1>
-            <hr />
-            
-            <label htmlFor="email">email</label>
+        <div className="flex items-center justify-center min-h-screen bg-black text-white">
+            <div className="bg-gradient-to-br from-[#0b132b] to-[#1c2541] shadow-lg rounded-2xl p-8 w-96 border border-blue-500/40">
+            <h1 className="text-3xl font-bold text-blue-400 text-center mb-6">
+                {loading ? "Processing" : "Login"}</h1>
+            <div className="flex flex-col">
+            <label htmlFor="email" className="mb-1 text-sm text-gray-300">email</label>
             <input 
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
             id="email"
@@ -66,10 +67,18 @@ export default function LoginPage() {
             />
             <button
             onClick={onLogin}
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+            className={`p-2 rounded-md transition duration-300 font-semibold ${
+              buttonDisabled
+                ? "bg-gray-600 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700"
+            }`}
             >Login here</button>
-            <Link href="/signup">Visit Signup page</Link>
-
+            
+            <Link href="/signup" className="text-blue-400 hover:underline">
+              Visit Sign up
+            </Link>
+            </div>
+            </div>
         </div>
     )
 }

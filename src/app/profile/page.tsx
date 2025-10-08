@@ -26,25 +26,29 @@ export default function ProfilePage() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>Profile</h1>
-            <hr />
-            <p>Profile page</p>
-            <h2 className="p-1 rounded bg-amber-500">{data === 'nothing' ? "nothing" : <Link href={`/profile/${data}`}>
-            {data}
-            </Link> }</h2>
-            <hr />
-            <button
-            onClick={logout}
-            className="bg-blue-500 mt-4 hover:bg-blue-700
-            text-white font-bold py-2 px-4 rounded"
-            >Logout</button>
-
-            <button
+         <div className="flex items-center justify-center min-h-screen bg-black text-white">
+      <div className="bg-gradient-to-br from-[#0b132b] to-[#1c2541] shadow-lg rounded-2xl p-8 w-96 border border-blue-500/40 text-center">
+        <h1 className="text-3xl font-bold text-blue-400 mb-4">Profile</h1>
+        <hr className="border-blue-500/30 mb-4" />
+        <p className="text-gray-300 mb-2">Your profile details:</p>
+        <h2 className="p-2 bg-blue-600 rounded-md text-black font-semibold">
+          {data === "nothing" ? "No data" : <Link href={`/profile/${data}`}>{data}</Link>}
+        </h2>
+        <div className="mt-6 flex flex-col gap-3">
+          <button
             onClick={getUserDetails}
-            className="bg-purple-700 mt-4 hover:bg-blue-700
-            text-white font-bold py-2 px-4 rounded"
-            >getUserDetails</button>
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md"
+          >
+            Get User Details
+          </button>
+          <button
+            onClick={logout}
+            className="bg-gray-700 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md"
+          >
+            Logout
+          </button>
         </div>
+      </div>
+    </div>
     )
 }
